@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div class="col-md-4">
+            <label for="">Empleado:</label>
+            <input type="text" [(ngModel)]="solicitudVacaciones.Empleadoid">
+        </div>
+        <div>
+            <label for="">Razón:</label>
+            <input type="text" [(ngModel)]="solicitudVacaciones.Razon">
+        </div>
+        <div>
+            <label for="">Fecha solicitud:</label>
+            <input type="text" [(ngModel)]="solicitudVacaciones.FechaSolicitud">
+        </div>
+        <div>
+            <label for="">Duración:</label>
+            <input type="text" [(ngModel)]="solicitudVacaciones.Duracion">
+        </div>
+        <div>
+            <button class="btn btn-danger" (click)="Registrar()">Registrar</button>
+        </div>  
+    </div>
+</body>
+</html>
