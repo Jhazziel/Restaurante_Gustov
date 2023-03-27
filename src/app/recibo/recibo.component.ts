@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Empleado } from '../interfaces/empleado';
 import { Recibo } from '../interfaces/recibo';
-import { SolicitudVacaciones } from '../interfaces/solicitud-vacaciones';
+import { Solicitud } from '../interfaces/solicitud';
 import { Vacaciones } from '../interfaces/vacaciones';
+import { ReciboService } from '../servicios/recibo.service';
 
 @Component({
   selector: 'app-recibo',
@@ -13,11 +14,11 @@ export class ReciboComponent {
 
   recibo:Recibo;
 
-  constructor(){
-    this.recibo = {
-      Empleado: {Nombre:'Jhaziel'} as Empleado,
-      Solicitud: {FechaSolicitud: new Date()} as SolicitudVacaciones,
-      Vacaciones: {FechaInicio: new Date(), FechaFin: new Date()} as Vacaciones
-    }  
-    }
+  constructor(private _recibo: ReciboService){
+    this.recibo = ({} as Recibo);
+  }
+
+  getRecibo(): void{
+    this._recibo.getRecibo(1);
+  } 
 }

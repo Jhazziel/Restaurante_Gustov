@@ -1,9 +1,9 @@
 import { Empleado } from "./empleado";
-import { SolicitudVacaciones } from "./solicitud-vacaciones";
+import { Solicitud } from "./solicitud";
 import { Vacaciones } from "./vacaciones";
 
 export interface Recibo{
     Empleado: Empleado;
-    Solicitud: SolicitudVacaciones;
+    Solicitud: Solicitud;
     Vacaciones: Vacaciones;
 }
