@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {FormGroup, FormControl} from '@angular/forms';
 import { Vacaciones } from '../interfaces/vacaciones';
 
 @Component({
@@ -8,8 +9,13 @@ import { Vacaciones } from '../interfaces/vacaciones';
 })
 export class VacacionesComponent {
 
-  vacaciones: Vacaciones;
+  range = new FormGroup({
+    start: new FormControl<Date | null>(null),
+    end: new FormControl<Date | null>(null),
+  });
 
+  vacaciones: Vacaciones;
+  
   constructor(){
     this.vacaciones = {} as Vacaciones;
   }

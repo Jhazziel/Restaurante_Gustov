@@ -1,12 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <button (click)="getRecibo()">Generar recibo</button>
-</body>
-</html>
+<section id="register">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-12 mx-auto">
+                <div class="card_register">
+                    <div class="card">
+                        <div class="body">
+                            <h1 class="h3 mb-3 mt-5 text-center">Recibos de vacación</h1>
+                            <form class="m-4">
+                                <div class="form-group">
+                                    <div class="mt-lg-5 col-md-12 text-center">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Seleccione un empleado</mat-label>
+                                            <mat-select>
+                                                <mat-option *ngFor="let empleado of empleados" [value]="empleado.value">
+                                                {{empleado.nombre}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="mt-lg-5 col-md-12 text-center">
+                                        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                                            <!--- Note that these columns can be defined in any order.
+                                            The actual rendered columns are set as a property on the row definition" -->
+                                            
+                                            <!-- Columna ID Recibo -->
+                                            <ng-container matColumnDef="IdRecibo">
+                                              <th mat-header-cell *matHeaderCellDef> Nro. Recibo </th>
+                                              <td mat-cell *matCellDef="let element"> {{element.IdRecibo}} </td>
+                                            </ng-container>
+                                            
+                                            <!-- Columna Fecha de la solicitud -->
+                                            <ng-container matColumnDef="fechaSolicitud">
+                                              <th mat-header-cell *matHeaderCellDef> Fecha solicitud </th>
+                                              <td mat-cell *matCellDef="let element"> {{element.fechaSolicitud}} </td>
+                                            </ng-container>
+                                            
+                                            <!-- Columna fecha inicio de vacaciones -->
+                                            <ng-container matColumnDef="fechaInicio">
+                                              <th mat-header-cell *matHeaderCellDef> Fecha inicio </th>
+                                              <td mat-cell *matCellDef="let element"> {{element.fechaInicio}} </td>
+                                            </ng-container>
+                                            
+                                            <!-- Columna fecha fin de vacaciones -->
+                                            <ng-container matColumnDef="fechaFin">
+                                              <th mat-header-cell *matHeaderCellDef> Fecha Fin </th>
+                                              <td mat-cell *matCellDef="let element"> {{element.fechaFin}} </td>
+                                            </ng-container>
+
+                                            <!-- Columna Solicitud Aceptada o denegada -->
+                                            <ng-container matColumnDef="Aceptado">
+                                                <th mat-header-cell *matHeaderCellDef> Aceptado </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.Aceptado}} </td>
+                                            </ng-container>
+
+                                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

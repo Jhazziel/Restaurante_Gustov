@@ -12,7 +12,7 @@ export class ReciboService {
       
    }
 
-   getRecibo(id: number): Observable<Solicitud> {
+   GetRecibo(id: number): Observable<Solicitud> {
       const params: HttpParams = new HttpParams().append('id', id.toString());
       return this._http.get<Solicitud>(this.apiurl+'getSolicitud', {params});
    }
